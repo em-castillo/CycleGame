@@ -48,7 +48,19 @@ class ControlActorsAction(Action):
         snake = cast.get_first_actor("snakes")
         snake.turn_head(self._direction)
 
-    def execute2(self, cast, script):
+
+class ControlActorsAction2(ControlActorsAction):
+    def __init__(self, keyboard_service):
+        """Constructs a second ControlActorsAction using the specified KeyboardService.
+        
+        Args:
+            keyboard_service (KeyboardService): An instance of KeyboardService.
+        """
+        super().__init__(keyboard_service)
+        self._keyboard_service = keyboard_service
+        self._direction = Point(constants.CELL_SIZE, 0)
+
+    def execute(self, cast, script):
         """Executes the control actors action.
 
         Args:
