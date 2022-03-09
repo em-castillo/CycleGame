@@ -31,7 +31,7 @@ class DrawActorsAction(Action):
         food = cast.get_first_actor("foods")
         snake = cast.get_first_actor("snakes")
         segments = snake.get_segments()
-        snake2 = cast.get_first_actor("snakes2")
+        snake2 = cast.get_second_actor("snakes")
         segments2 = snake2.get_segments()
         messages = cast.get_actors("messages")
         messages2 = cast.get_actors("messages2")
