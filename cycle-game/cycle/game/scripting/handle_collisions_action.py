@@ -40,9 +40,7 @@ class HandleCollisionsAction(Action):
         snake = cast.get_first_actor("snakes")
         snake2 = cast.get_second_actor("snakes")
 
-
         snake.grow_tail(1)
-
         snake2.grow_tail(1)
 
     def _handle_segment_collision(self, cast):
@@ -81,10 +79,6 @@ class HandleCollisionsAction(Action):
             snake2 = cast.get_second_actor("snakes")
             segments = snake.get_segments()
             segments2 = snake2.get_segments()
-            food = cast.get_first_actor("foods")
-
-            # snake2 = cast.get_first_actor("snakes2")
-            # segments2 = snake2.get_segments()
 
             x = int(constants.MAX_X / 2)
             y = int(constants.MAX_Y / 2)
@@ -99,5 +93,3 @@ class HandleCollisionsAction(Action):
                 segment.set_color(constants.WHITE)
             for segment2 in segments2:
                 segment2.set_color(constants.WHITE)
-            food.set_color(constants.WHITE)
-
