@@ -1,4 +1,4 @@
-# Snake
+# Cycle Game
 
 Cycle is a game where the players try to cut each other off using cycles that leave a trail behind them.
 
@@ -29,6 +29,7 @@ root (project root folder)
 +-- cycle (source code for game)
 +-- game (specific game classes)
 +-- **main**.py (entry point for program)
++-- constants.py (constants for program)
 +-- README.md (general info)
 
 ```
@@ -40,5 +41,6 @@ root (project root folder)
 
 ## Authors
 ---
-* Emily Castillo: cas20037@byui.edu
+* Aaron Eardley
+* Emily Castillo
 ```
