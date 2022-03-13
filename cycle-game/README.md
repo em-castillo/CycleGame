@@ -30,9 +30,9 @@ The project files and folders are organized as follows:
 ```
 root (project root folder)
 +-- cycle (source code for game)
-+-- game (specific game classes)
-+-- **main**.py (entry point for program)
-+-- constants.py (constants for program)
+    +-- game (specific game classes)
+    +-- **main**.py (entry point for program)
+    +-- constants.py (constants for program)
 +-- README.md (general info)
 
 ```
