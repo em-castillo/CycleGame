@@ -3,7 +3,7 @@ from game.casting.actor import Actor
 from game.shared.point import Point
 
 
-class Snake(Actor):
+class SnakeModel(Actor):
     """
     A long limbless reptile.
 
@@ -36,6 +36,38 @@ class Snake(Actor):
         return self._segments[0]
 
     def grow_tail(self, number_of_segments):
+        pass
+
+    def turn_head(self, velocity):
+        self._segments[0].set_velocity(velocity)
+
+    def _prepare_body(self):
+        pass
+
+
+class Snake(SnakeModel):
+    """
+    First long limbless reptile.
+
+    The responsibility of Snake is to move itself.
+
+    Attributes:
+        _points (int): The number of points the food is worth.
+    """
+
+    def __init__(self):
+        super().__init__()
+
+    def get_segments(self):
+        return super().get_segments()
+
+    def move_next(self):
+        return super().move_next()
+
+    def get_head(self):
+        return super().get_head()
+
+    def grow_tail(self, number_of_segments):
         for i in range(number_of_segments):
             tail = self._segments[-1]
             velocity = tail.get_velocity()
@@ -50,9 +82,10 @@ class Snake(Actor):
             self._segments.append(segment)
 
     def turn_head(self, velocity):
-        self._segments[0].set_velocity(velocity)
+        return super().turn_head(velocity)
 
     def _prepare_body(self):
+
         x = int(constants.MAX_X / 2)
         y = int(constants.MAX_Y / 2)
 
@@ -70,7 +103,7 @@ class Snake(Actor):
             self._segments.append(segment)
 
 
-class Snake2(Actor):
+class Snake2(SnakeModel):
     """
     Second long limbless reptile.
 
@@ -81,26 +114,16 @@ class Snake2(Actor):
     """
 
     def __init__(self):
-        super().__init__()
-        self._segments = []
-        self._prepare_body()
+        return super().__init__()
 
     def get_segments(self):
-        return self._segments
+        return super().get_segments()
 
     def move_next(self):
-        # move all segments
-        for segment in self._segments:
-            segment.move_next()
-        # update velocities
-        for i in range(len(self._segments) - 1, 0, -1):
-            trailing = self._segments[i]
-            previous = self._segments[i - 1]
-            velocity = previous.get_velocity()
-            trailing.set_velocity(velocity)
+        return super().move_next()
 
     def get_head(self):
-        return self._segments[0]
+        return super().get_head()
 
     def grow_tail(self, number_of_segments):
         for i in range(number_of_segments):
@@ -117,7 +140,7 @@ class Snake2(Actor):
             self._segments.append(segment)
 
     def turn_head(self, velocity):
-        self._segments[0].set_velocity(velocity)
+        return super().turn_head(velocity)
 
     def _prepare_body(self):
         x = int(constants.MAX_X / 2)
