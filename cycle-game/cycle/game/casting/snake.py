@@ -1,4 +1,5 @@
 import constants
+import random
 from game.casting.actor import Actor
 from game.shared.point import Point
 
@@ -17,6 +18,7 @@ class SnakeModel(Actor):
         super().__init__()
         self._segments = []
         self._prepare_body()
+        self._points = 0
 
     def get_segments(self):
         return self._segments
@@ -43,6 +45,18 @@ class SnakeModel(Actor):
 
     def _prepare_body(self):
         pass
+
+    def reset(self):
+        """Selects random points"""
+        self._points = random.randint(1, 8)
+
+    def get_points(self):
+        """Gets the points.
+
+        Returns:
+            points (int): The points.
+        """
+        return self._points
 
 
 class Snake(SnakeModel):
@@ -102,6 +116,12 @@ class Snake(SnakeModel):
             segment.set_color(color)
             self._segments.append(segment)
 
+    def reset(self):
+        return super().reset()
+
+    def get_points(self):
+        return super().get_points()
+
 
 class Snake2(SnakeModel):
     """
@@ -158,3 +178,9 @@ class Snake2(SnakeModel):
             segment.set_text(text)
             segment.set_color(color)
             self._segments.append(segment)
+
+    def reset(self):
+        return super().reset()
+
+    def get_points(self):
+        return super().get_points()
